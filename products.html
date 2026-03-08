@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products — Indo Thai Global</title>
+  <meta name="description" content="Explore Indo Thai Global's range of solar, hybrid and industrial drying systems."/>
+  <link rel="icon" href="assets/logo.png" type="image/png"/>
+  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet" href="css/navbar.css"/>
+  <link rel="stylesheet" href="css/products.css"/>
+  <style>
+    /* ── filter pills ── */
+    .filter-pills {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      justify-content: center; margin-top: 0.4rem;
+    }
+    .fp-btn {
+      padding: 0.32rem 1rem;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--r-full);
+      background: none;
+      font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500;
+      color: var(--text-mid); cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .fp-btn:hover  { border-color: var(--amber); color: var(--text-dark); background: var(--amber-bg); }
+    .fp-btn.is-active {
+      background: var(--text-dark); color: #eee8d0;
+      border-color: var(--text-dark);
+    }
+
+    /* ── CTA strip ── */
+    .cta-strip {
+      background: var(--off-white);
+      border-top: 1px solid var(--border);
+      padding: clamp(3rem,6vw,5rem) 0;
+    }
+    .cta-strip-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .cta-strip-label {
+      font-family: var(--font-mono); font-size: 0.6rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 0.4rem;
+    }
+    .cta-strip-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 600; color: var(--text-dark); line-height: 1.2;
+    }
+    .cta-strip-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+  <!-- ░░ NAVBAR ░░ -->
+  <nav class="nav" id="nav">
+    <div class="nav-accent"   aria-hidden="true"></div>
+    <div class="nav-progress" id="navProgress" aria-hidden="true"></div>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="Indo Thai Global — Home">
+        <img src="assets/logo.png" alt="Indo Thai Global logo" class="nav-logo"
+             draggable="false" onerror="this.style.display='none'"/>
+        <div class="nav-brand-words">
+          <span class="nav-brand-name">Indo Thai Global</span>
+          <span class="nav-brand-tag">Est. 2005 &middot; India</span>
+        </div>
+      </a>
+      <div class="nav-divider" aria-hidden="true"></div>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"          class="nav-link">Home</a></li>
+        <li><a href="products.html"       class="nav-link active">Products</a></li>
+        <li><a href="infrastructure.html" class="nav-link">Infrastructure</a></li>
+        <li><a href="quality.html"        class="nav-link">Quality</a></li>
+        <li><a href="about.html"          class="nav-link">About</a></li>
+        <li><a href="contact.html"        class="nav-link">Contact</a></li>
+      </ul>
+      <a href="quote.html" class="nav-cta">
+        Get a Quote <span class="cta-arrow" aria-hidden="true">→</span>
+      </a>
+      <button class="nav-burger" id="burger"
+        aria-label="Toggle navigation" aria-expanded="false" aria-controls="drawer">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-drawer" id="drawer" role="navigation" aria-label="Mobile navigation">
+    <ul class="drawer-links" role="list">
+      <li><a href="index.html"          class="drawer-link">Home          <span class="drawer-arrow">›</span></a></li>
+      <li><a href="products.html"       class="drawer-link">Products      <span class="drawer-arrow">›</span></a></li>
+      <li><a href="infrastructure.html" class="drawer-link">Infrastructure <span class="drawer-arrow">›</span></a></li>
+      <li><a href="quality.html"        class="drawer-link">Quality       <span class="drawer-arrow">›</span></a></li>
+      <li><a href="about.html"          class="drawer-link">About         <span class="drawer-arrow">›</span></a></li>
+      <li><a href="contact.html"        class="drawer-link">Contact       <span class="drawer-arrow">›</span></a></li>
+    </ul>
+    <div class="drawer-cta-wrap">
+      <a href="quote.html" class="drawer-cta">Get a Quote →</a>
+    </div>
+  </div>
+
+  <!-- ░░ MAIN ░░ -->
+  <main class="page-body">
+
+    <!-- Page hero -->
+    <section class="products-page-hero" aria-label="Products overview">
+      <div class="container">
+        <div class="ph-inner">
+          <div class="products-eyebrow" style="justify-content:center;margin-bottom:1rem">
+            Our Range
+          </div>
+          <p class="products-sub" style="max-width:520px;margin:0 auto 1.8rem">
+            Built for performance, hygiene and decades of reliable service.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products grid -->
+    <section class="products-section" id="products" aria-label="Product catalogue">
+      <div class="container">
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </section>
+
+    <!-- CTA strip -->
+    <section class="cta-strip" aria-label="Contact CTA">
+      <div class="container">
+        <div class="cta-strip-inner">
+          <div class="cta-strip-text">
+            <p class="cta-strip-label">Ready to get started?</p>
+            <h2 class="cta-strip-title">Let's get the right product for you</h2>
+          </div>
+          <div class="cta-strip-btns">
+            <a href="quote.html"   class="btn btn-dark">Request a Quote →</a>
+            <a href="contact.html" class="btn btn-ghost">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/products.js"></script>
+  <script>
+    /* ── Filter pills ── */
+    (function () {
+      document.querySelectorAll('.fp-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('.fp-btn').forEach(function (b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          const filter = btn.dataset.filter;
+          document.querySelectorAll('.prod-card').forEach(function (card) {
+            const cat = (card.querySelector('.prod-badge') || {}).textContent || '';
+            card.style.display = (filter === 'all' || cat.trim() === filter) ? '' : 'none';
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+<footer class="site-footer">
+
+<div class="container footer-grid">
+
+<div class="footer-col">
+
+<h3 class="footer-brand">Indo Thai Global</h3>
+
+<p class="footer-text">
+Innovative solar drying solutions designed for agriculture,
+food processing and sustainable energy applications.
+</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4 class="footer-title">Quick Navigation</h4>
+
+<ul class="footer-links">
+
+<li><a href="index.html">Home</a></li>
+<li><a href="index.html#products">Our Products</a></li>
+<li><a href="index.html#company">Company</a></li>
+<li><a href="index.html#why-us">Why Choose Us</a></li>
+<li><a href="index.html#quote">Request Quote</a></li>
+
+</ul>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4 class="footer-title">Contact</h4>
+
+<p>+91 76579-44044</p>
+<p>info@indothaiglobal.com</p>
+<p>Ludhiana, Punjab, India</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+© 2026 Indo Thai Global — All Rights Reserved
+</p>
+
+</div>
+
+</footer>
+</html>
