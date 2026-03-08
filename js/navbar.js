@@ -79,7 +79,7 @@
   /* ────────────────────────────────────────────
      ACTIVE LINK — highlight based on current URL
   ──────────────────────────────────────────── */
-  const current = window.location.pathname.split('/').pop() || 'index.html';
+  const current = window.location.pathname.split('/').pop() || 'home.html';
 
   document.querySelectorAll('.nav-link, .drawer-link').forEach(function (link) {
     const href = link.getAttribute('href');

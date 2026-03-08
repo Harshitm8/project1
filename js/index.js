@@ -1,29 +1,38 @@
 /**
- * index.js — Indo Thai Global
- * Home page scripts: intersection observer for scroll animations
+ * welcome.js — Professional splash interactions
+ * Click / tap / keyboard → ripple → navigate to index.html
  */
 
+/* Pill stagger (product grid items) */
+document.querySelectorAll('.pg-item').forEach((el, i) => {
+  el.style.animationDelay = `${1.15 + i * 0.06}s`;
+});
+
+/* Navigation */
 (function () {
-  'use strict';
+  const page = document.getElementById('wp');
+  if (!page) return;
+  let going = false;
 
-  /* ── Intersection Observer: fade-up on scroll ── */
-  if (!('IntersectionObserver' in window)) return;
+  function go(x, y) {
+    if (going) return;
+    going = true;
 
-  const observer = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
-  );
+    const r = document.createElement('div');
+    r.className = 'ripple';
+    const s = 80;
+    r.style.cssText = `width:${s}px;height:${s}px;left:${x-s/2}px;top:${y-s/2}px;`;
+    document.body.appendChild(r);
 
-  // Observe any elements with data-reveal attribute
-  document.querySelectorAll('[data-reveal]').forEach(function (el) {
-    observer.observe(el);
-  });
+    setTimeout(() => page.classList.add('exiting'), 120);
+    setTimeout(() => { window.location.href = 'home.html'; }, 800);
+  }
 
+  page.addEventListener('click', e => go(e.clientX, e.clientY));
+  page.addEventListener('touchend', e => {
+    const t = e.changedTouches[0];
+    go(t.clientX, t.clientY);
+  }, { passive: true });
+  window.addEventListener('keydown', () =>
+    go(window.innerWidth / 2, window.innerHeight / 2));
 })();
